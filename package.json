@@ -1,0 +1,19 @@
+{
+  "name": "ors-app",
+  "version": "1.0.0",
+  "description": "Simple web app demonstrating usage of osr",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corykitchens/ors-app.git"
+  },
+  "author": "Cory Kitchens <corykitchens@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/corykitchens/ors-app/issues"
+  },
+  "homepage": "https://github.com/corykitchens/ors-app#readme"
+}
