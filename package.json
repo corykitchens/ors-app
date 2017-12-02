@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/corykitchens/ors-app/issues"
   },
-  "homepage": "https://github.com/corykitchens/ors-app#readme"
+  "homepage": "https://github.com/corykitchens/ors-app#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.0"
+  }
 }
