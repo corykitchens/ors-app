@@ -1,6 +1,5 @@
 const Course = require('../models/Course.Model.js');
-
-
+const OnlineRegistrationSystem = require('ors-cp');
 
 module.exports.getAllCourses = (req, res) => {
   Course.find((err, courses) => {
@@ -19,11 +18,10 @@ module.exports.getCourse = (req, res) => {
 }
 
 module.exports.createCourse = (req, res) => {
-  const course = new Course();
-  course.save((err) => {
+  Course.create(req.body, (err, course) => {
     if (err) return responseWithError(err, res);
     return responseWithSuccess(res, course);
-  })
+  });
 }
 
 module.exports.updateCourse = (req, res) => {
@@ -46,6 +44,17 @@ module.exports.deleteCourse = (req, res) => {
   });
 
 }
+
+module.exports.getCourseEnrollment = async (req, res) => {
+  Course.findOne({
+    _id: req.params.courseId
+  }, (err, course) => {
+    if (err) return responseWithError(err, res);
+    const ors = new OnlineRegistrationSystem(course);
+    return responseWithSuccess(res, ors.showCourseEnrollment());
+  })
+}
+
 
 
 function responseWithError(err, res) {

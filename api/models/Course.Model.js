@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const CourseSchema = new Schema({
+  name: String,
   enrollmentCapacity: {
     type: Number,
     default: 0

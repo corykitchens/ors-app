@@ -22,6 +22,9 @@ router.get('/api/courses/:courseId', CourseController.getCourse);
 router.put('/api/courses/:courseId', CourseController.updateCourse);
 router.delete('/api/courses/:courseId', CourseController.deleteCourse);
 
+//Enrollment Endpoint
+router.get('/api/courses/:courseId/enrollment', CourseController.getCourseEnrollment);
+
 router.all('*', (req, res) => {
   res.status(404).json({message: "Nothing to see here"});
 })

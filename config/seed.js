@@ -1,5 +1,8 @@
 const dbConfig = require('./db.config.js');
+const mongoose = require('mongoose');
 const Course = require('../api/models/Course.Model.js');
+
+mongoose.Promise = global.Promise;
 
 const courses = [
   {
@@ -55,7 +58,7 @@ const courses = [
     ],
     "currentEnrollment": {
       "effectiveDate": "2017-12-06",
-      "reservedSeatsEnrolled": 1,
+      "reservedSeatsEnrolled": 3,
       "openSeatsEnrolled": 1
     }
   }
