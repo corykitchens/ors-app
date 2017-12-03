@@ -36,15 +36,25 @@
           <div class="cp-seat-display">
             <ul class="cp-seat-list cp-seat-display-container">
               <!-- Closed Open Seating -->
-              <li class="cp-seat cos" ng-repeat="x in range(selectedCourse.currentEnrollment.openSeatsEnrolled) track by $index">COS</li>
+              <li class="cp-seat cos" ng-repeat="x in range(selectedCourse.currentEnrollment.openSeatsEnrolled) track by $index">
+                <i class="fa fa-user cp-seat-icon" aria-hidden="true"></i>
+              </li>
               <!-- Available Open Seating -->
-              <li class="cp-seat aos" ng-repeat="x in range(selectedCourse.currentEnrollment.openSeatsAvailable) track by $index">AOS</li>
+              <li class="cp-seat aos" ng-repeat="x in range(selectedCourse.currentEnrollment.openSeatsAvailable) track by $index">
+                <i class="fa fa-plus-square cp-seat-icon" aria-hidden="true"></i>
+              </li>
               <!-- Closed Reserved Seating -->
-              <li class="cp-seat crs" ng-repeat="x in range(selectedCourse.currentEnrollment.reservedSeatsEnrolled) track by $index">CRS</li>
+              <li class="cp-seat crs" ng-repeat="x in range(selectedCourse.currentEnrollment.reservedSeatsEnrolled) track by $index">
+                <i class="fa fa-user cp-seat-icon" aria-hidden="true"></i>
+              </li>
               <!-- Available Reserved Seating -->
-              <li class="cp-seat ars" ng-repeat="x in range(selectedCourse.currentEnrollment.reservedSeatsAvailable) track by $index">ARS</li>
+              <li class="cp-seat ars" ng-repeat="x in range(selectedCourse.currentEnrollment.reservedSeatsAvailable) track by $index">
+                <i class="fa fa-plus-square cp-seat-icon" aria-hidden="true"></i>
+              </li>
               <!-- Reserved Seats Not Enabled -->
-              <li class="cp-seat rs" ng-repeat="x in range(selectedCourse.currentEnrollment.reservedSeatsDisabled) track by $index">RS</li>
+              <li class="cp-seat rs" ng-repeat="x in range(selectedCourse.currentEnrollment.reservedSeatsDisabled) track by $index">
+                <i class="fa fa-times-circle cp-seat-icon" aria-hidden="true"></i>
+              </li>
             </ul>
           </div>
         </div>

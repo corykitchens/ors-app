@@ -22,7 +22,7 @@ angular.module('orsApp', [])
   $scope.courses = [
     {
       "name": "CMPS 211 Intro to Programming",
-      "enrollmentCapacity": 8,
+      "enrollmentCapacity": 20,
       "reservations": [
         {
           "reservationCapacity": 4,
@@ -37,10 +37,10 @@ angular.module('orsApp', [])
       ],
       "currentEnrollment": {
         "effectiveDate": "2017-12-06",
-        "reservedSeatsEnrolled": 2,
-        "openSeatsEnrolled": 2,
-        "openSeatsAvailable": 3,
-        "reservedSeatsAvailable": 4
+        "reservedSeatsEnrolled": 3,
+        "openSeatsEnrolled": 5,
+        "openSeatsAvailable": 10,
+        "reservedSeatsAvailable": 2
       }
     }
   ];
