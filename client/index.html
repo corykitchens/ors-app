@@ -11,10 +11,33 @@
   <body ng-app="orsApp" ng-controller="MainCtrl as main">
   <section class="section">
     <div class="container">
-      <h1 class="title">
-        Hello {{message}}
-      </h1>
-      <table class="table is-bordered is-striped is-narrow is-fullwidth"></table>
+
+      <div class="panel">
+        <p class="panel-heading">
+          Course Listing
+        </p>
+        <div class="panel-block">
+          <table class="table is-bordered is-striped is-narrow is-fullwidth">
+            <thead>
+              <th>Name</th>
+              <th># Open Enrolled Students</th>
+              <th># Reserved Enrolled Students</th>
+              <th># Open Seats Available</th>
+              <th># Open Reserved Seats Available</th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="course in courses">
+                <td>{{course.name}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
     </div>
   </section>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
