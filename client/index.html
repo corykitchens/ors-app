@@ -11,27 +11,89 @@
   <body ng-app="orsApp" ng-controller="MainCtrl as main">
   <section class="section">
     <div class="container">
-
       <div class="panel">
         <p class="panel-heading">
-          Course Listing
+          Course Select
         </p>
         <div class="panel-block">
-          <table class="table is-bordered is-striped is-narrow is-fullwidth">
+          <div class="field">
+            <label for="course-select">Select Course</label>
+            <div class="control">
+              <div class="select">
+                <select name="course-select" id="course-select">
+                  <option value="0123">Course A</option>
+                  <option value="0123">Course B</option>
+                  <option value="0123">Course C</option>
+                  <option value="0123">Course D</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <p class="panel-heading">
+          Course A Enrollment
+        </p>
+        <div class="panel-block">
+          <div class="cp-seat-display">
+            <ul class="cp-seat-list cp-seat-display-container">
+              <li class="cp-seat cos"></li>
+              <li class="cp-seat cos"></li>
+              <li class="cp-seat cos"></li>
+              <li class="cp-seat cos"></li>
+              <li class="cp-seat aos"></li>
+              <li class="cp-seat aos"></li>
+              <li class="cp-seat aos"></li>
+              <li class="cp-seat crs"></li>
+              <li class="cp-seat crs"></li>
+              <li class="cp-seat crs"></li>
+              <li class="cp-seat crs"></li>
+              <li class="cp-seat ars"></li>
+              <li class="cp-seat ars"></li>
+              <li class="cp-seat rs"></li>
+              <li class="cp-seat rs"></li>
+            </ul>
+          </div>
+        </div>
+        <ul class="panel-block legend-container">
+          <li class="legend-item">
+            Closed Open Seat
+            <div class="legend-shape cos"></div>
+          </li>
+          <li class="legend-item">
+            Available Open Seat
+            <div class="legend-shape aos"></div>
+          </li>
+          <li class="legend-item">
+            Closed Reserved Seats
+            <div class="legend-shape crs"></div>
+          </li>
+          <li class="legend-item">
+            Available Reserved Seats
+            <div class="legend-shape ars"></div>
+          </li>
+          <li class="legend-item">
+            Not-Enabled Reserved Seats
+            <div class="legend-shape rs"></div>
+          </li>
+        </ul>
+        <div class="panel-block">
+          <table class="table is-fullwidth">
             <thead>
               <th>Name</th>
-              <th># Open Enrolled Students</th>
-              <th># Reserved Enrolled Students</th>
-              <th># Open Seats Available</th>
-              <th># Open Reserved Seats Available</th>
+              <th>Open Seats</th>
+              <th>Reserved Seats</th>
+              <th>Total Open Seats</th>
+              <th>Total Reserved Seats</th>
             </thead>
             <tbody>
               <tr ng-repeat="course in courses">
                 <td>{{course.name}}</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
               </tr>
             </tbody>
           </table>
