@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Online Registration System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
+    <link rel="stylesheet" href="css/ors.css">
+  </head>
+  <body ng-app="orsApp" ng-controller="MainCtrl as main">
+  <section class="section">
+    <div class="container">
+      <div class="panel">
+        <p class="panel-heading cp-green">
+          Course Select
+        </p>
+        <div class="panel-block">
+          <div class="field">
+            <label for="course-select">Select Course</label>
+            <div class="control">
+              <div class="select">
+                <select name="course-select" id="course-select" ng-model="selectedCourse" 
+                        ng-options="course as course.name for course in courses">
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel" ng-show="selectedCourse">
+        <p class="panel-heading cp-green">
+          {{selectedCourse.name}} Enrollment
+        </p>
+        <div class="panel-block">
+          <div class="cp-seat-display">
+            <ul class="cp-seat-list cp-seat-display-container">
+              <!-- Closed Open Seating -->
+              <li class="cp-seat cos" ng-repeat="x in range(selectedCourse.currentEnrollment.openSeatsEnrolled) track by $index">
+                <i class="fa fa-user cp-seat-icon" aria-hidden="true"></i>
+              </li>
+              <!-- Available Open Seating -->
+              <li class="cp-seat aos" ng-repeat="x in range(selectedCourse.currentEnrollment.openSeatsAvailable) track by $index">
+                <i class="fa fa-plus-square cp-seat-icon" aria-hidden="true"></i>
+              </li>
+              <!-- Closed Reserved Seating -->
+              <li class="cp-seat crs" ng-repeat="x in range(selectedCourse.currentEnrollment.reservedSeatsEnrolled) track by $index">
+                <i class="fa fa-user cp-seat-icon" aria-hidden="true"></i>
+              </li>
+              <!-- Available Reserved Seating -->
+              <li class="cp-seat ars" ng-repeat="x in range(selectedCourse.currentEnrollment.reservedSeatsAvailable) track by $index">
+                <i class="fa fa-plus-square cp-seat-icon" aria-hidden="true"></i>
+              </li>
+              <!-- Reserved Seats Not Enabled -->
+              <li class="cp-seat rs" ng-repeat="x in range(selectedCourse.currentEnrollment.reservedSeatsDisabled) track by $index">
+                <i class="fa fa-times-circle cp-seat-icon" aria-hidden="true"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <ul class="panel-block legend-container">
+          <li class="legend-item">
+            Closed Open Seat
+            <div class="legend-shape cos"></div>
+          </li>
+          <li class="legend-item">
+            Available Open Seat
+            <div class="legend-shape aos"></div>
+          </li>
+          <li class="legend-item">
+            Closed Reserved Seats
+            <div class="legend-shape crs"></div>
+          </li>
+          <li class="legend-item">
+            Available Reserved Seats
+            <div class="legend-shape ars"></div>
+          </li>
+          <li class="legend-item">
+            Not-Enabled Reserved Seats
+            <div class="legend-shape rs"></div>
+          </li>
+        </ul>
+        <div class="panel-block">
+          <table class="table is-fullwidth">
+            <thead>
+              <th>Name</th>
+              <th>Capacity</th>
+              <th>Open Seats Enrolled</th>
+              <th>Reserved Seats Enrolled</th>
+              <th>Open Seats Available</th>
+              <th>Reserved Seats Available</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{selectedCourse.name}}</td>
+                <td>{{selectedCourse.enrollmentCapacity}}</td>
+                <td>{{selectedCourse.currentEnrollment.openSeatsEnrolled}}</td>
+                <td>{{selectedCourse.currentEnrollment.reservedSeatsEnrolled}}</td>
+                <td>{{selectedCourse.currentEnrollment.openSeatsAvailable}}</td>
+                <td>{{selectedCourse.currentEnrollment.reservedSeatsAvailable}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  </body>
+</html>
