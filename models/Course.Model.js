@@ -13,7 +13,7 @@ const CourseSchema = new Schema({
         type: Number,
         default: 0
       },
-      sequenceId: ObjectId,
+      sequenceId: Schema.ObjectId,
       effectiveStartDate: {
         type: Date,
         default: Date.now
