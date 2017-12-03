@@ -1,3 +1,8 @@
+.cp-green {
+  background-color: rgb(3,86,66);
+  color: #FFF;
+}
+
 /*Seat Container*/
 .cp-seat-display-container {
   width: 100%;
