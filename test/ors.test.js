@@ -13,11 +13,12 @@ const expectedData = {
   openSeatsAvailable: 17
 };
 
-// const osr = new OnlineRegistration(classData);
-
 describe('OnlineRegistration usage', () => {
   it('should be usable with an instance of a Course', function(done) {
-    // 
+    // FIXME
+    // Theres probably a better way to write this test
+    // without relying on a hardcoded query to match seed data
+    // e.g. create mock instance, save, then query
     Course.findOne({name: 'PHIL 316 - Professional Ethics'}, (err, course) => {
       if (err) {
         throw err;
