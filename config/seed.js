@@ -82,6 +82,7 @@ function seedDatabaseWithMockCourses () {
     }
   })
   console.log('Done! Thanks async/await');
+  process.exit(0);
 };
 
 
