@@ -1,8 +1,11 @@
+const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const routes = require('./routes.js');
 
 module.exports = function(server) {
+
+  server.use(express.static('client'));
 
   server.set('PORT', process.env.PORT || 3000);
   
