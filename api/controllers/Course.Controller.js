@@ -39,10 +39,10 @@ module.exports.updateCourse = (req, res) => {
 
 module.exports.deleteCourse = (req, res) => {
   Course.remove({
-    _id: req.params.id,
+    _id: req.params.courseId,
   }, (err) => {
     if (err) return responseWithError(err, res);
-    return responseWithSuccess(res, {});
+    return responseWithSuccess(res, { message: "success" });
   });
 
 }
