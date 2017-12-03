@@ -1,8 +1,9 @@
-const Cousre = require('../models/Course.Model.js');
+const Course = require('../models/Course.Model.js');
 
 
 
 module.exports.getAllCourses = (req, res) => {
+  
   res.status(200).json({message: "Get All Courses"});
 }
 
