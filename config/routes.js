@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const CourseController = require('../api/controllers/Course.Controller.js');
 
 
 //GET landing page
@@ -13,25 +14,12 @@ router.all('/api', (req, res) => {
   res.status(200).json({message: "Hello World!"});
 });
 
-router.get('/api/courses', (req, res) => {
-  res.status(200).json({message: "Get All Courses"});
-});
-
-router.post('/api/courses/', (req, res) => {
-  res.status(200).json({message: "Create a New Course"});
-});
-
-router.get('/api/courses/:courseId', (req, res) => {
-  res.status(200).json({message: `Get Course ID ${req.params.courseId}` });
-});
-
-router.put('/api/courses/:courseId', (req, res) => {
-  res.status(200).json({message: `Update Course ID ${req.params.courseId}` });
-});
-
-router.delete('/api/courses/:courseId', (req, res) => {
-  res.status(200).json({message: `Delete Course ID ${req.params.courseId}` });
-});
+//Course endpoints
+router.get('/api/courses', CourseController.getAllCourses);
+router.post('/api/courses/', CourseController.createCourse);
+router.get('/api/courses/:courseId', CourseController.getCourse);
+router.put('/api/courses/:courseId', CourseController.updateCourse);
+router.delete('/api/courses/:courseId', CourseController.deleteCourse);
 
 router.all('*', (req, res) => {
   res.status(404).json({message: "Nothing to see here"});
