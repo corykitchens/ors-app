@@ -35,21 +35,16 @@
         <div class="panel-block">
           <div class="cp-seat-display">
             <ul class="cp-seat-list cp-seat-display-container">
-              <li class="cp-seat cos"></li>
-              <li class="cp-seat cos"></li>
-              <li class="cp-seat cos"></li>
-              <li class="cp-seat cos"></li>
-              <li class="cp-seat aos"></li>
-              <li class="cp-seat aos"></li>
-              <li class="cp-seat aos"></li>
-              <li class="cp-seat crs"></li>
-              <li class="cp-seat crs"></li>
-              <li class="cp-seat crs"></li>
-              <li class="cp-seat crs"></li>
-              <li class="cp-seat ars"></li>
-              <li class="cp-seat ars"></li>
-              <li class="cp-seat rs"></li>
-              <li class="cp-seat rs"></li>
+              <!-- Closed Open Seating -->
+              <li class="cp-seat cos" ng-repeat="x in range(selectedCourse.currentEnrollment.openSeatsEnrolled) track by $index">COS</li>
+              <!-- Available Open Seating -->
+              <li class="cp-seat aos" ng-repeat="x in range(selectedCourse.currentEnrollment.openSeatsAvailable) track by $index">AOS</li>
+              <!-- Closed Reserved Seating -->
+              <li class="cp-seat crs" ng-repeat="x in range(selectedCourse.currentEnrollment.reservedSeatsEnrolled) track by $index">CRS</li>
+              <!-- Available Reserved Seating -->
+              <li class="cp-seat ars" ng-repeat="x in range(selectedCourse.currentEnrollment.reservedSeatsAvailable) track by $index">ARS</li>
+              <!-- Reserved Seats Not Enabled -->
+              <li class="cp-seat rs" ng-repeat="x in range(selectedCourse.currentEnrollment.reservedSeatsDisabled) track by $index">RS</li>
             </ul>
           </div>
         </div>
@@ -92,7 +87,7 @@
                 <td>{{selectedCourse.currentEnrollment.openSeatsEnrolled}}</td>
                 <td>{{selectedCourse.currentEnrollment.reservedSeatsEnrolled}}</td>
                 <td>{{selectedCourse.currentEnrollment.openSeatsAvailable}}</td>
-                <td>{{selectedCourse.currentEnrollment.reservedSeatsAvilable}}</td>
+                <td>{{selectedCourse.currentEnrollment.reservedSeatsAvailable}}</td>
               </tr>
             </tbody>
           </table>

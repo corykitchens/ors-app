@@ -37,10 +37,17 @@ angular.module('orsApp', [])
       ],
       "currentEnrollment": {
         "effectiveDate": "2017-12-06",
-        "reservedSeatsEnrolled": 1,
-        "openSeatsEnrolled": 1
+        "reservedSeatsEnrolled": 2,
+        "openSeatsEnrolled": 2,
+        "openSeatsAvailable": 3,
+        "reservedSeatsAvailable": 4
       }
     }
-  ]
+  ];
+
+  $scope.range = function(n) {
+      return new Array(n);
+  };
+
   // initializeCourses();
 });
