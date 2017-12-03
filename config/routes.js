@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const router = express.Router();
 const CourseController = require('../api/controllers/Course.Controller.js');
@@ -5,7 +6,7 @@ const CourseController = require('../api/controllers/Course.Controller.js');
 
 //GET landing page
 router.get('/', (req, res) => {
-  res.send('GET landing page');
+  res.sendFile('index.html');
 });
 
 
