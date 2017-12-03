@@ -4,7 +4,8 @@
   "description": "Simple web app demonstrating usage of osr",
   "main": "server.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "seed": "node config/seed.js"
   },
   "repository": {
     "type": "git",
