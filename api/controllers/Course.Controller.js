@@ -18,11 +18,10 @@ module.exports.getCourse = (req, res) => {
 }
 
 module.exports.createCourse = (req, res) => {
-  const course = new Course();
-  course.save((err) => {
+  Course.create(req.body, (err, course) => {
     if (err) return responseWithError(err, res);
     return responseWithSuccess(res, course);
-  })
+  });
 }
 
 module.exports.updateCourse = (req, res) => {
