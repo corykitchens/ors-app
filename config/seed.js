@@ -84,7 +84,8 @@ function seedDatabaseWithMockCourses () {
       console.error('Error', err);
     }
   })
-  console.log('Done! Thanks async/await');
+  // TODO - wait until promises are resolved to process.exit
+  console.log('Done!');
 };
 
 
