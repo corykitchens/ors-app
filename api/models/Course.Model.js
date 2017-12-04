@@ -38,14 +38,26 @@ const CourseSchema = new Schema({
     openSeatsAvailable: {
       type: Number,
       default: 0
+    },
+    reservedSeatsAvailable: {
+      type: Number,
+      default: 0
     }
   }
 });
 
-
-CourseSchema.methods.getEnrollment = function(cb) {
-  const ors = new OnlineRegistration(this);
+function getSeatsAvailable(course) {
+  const ors = new OnlineRegistration(course);
   return ors.showCourseEnrollment();
 };
+
+CourseSchema.pre('save', function(next) {
+  const { openSeatsAvailable, reservedSeatsAvailable } = getSeatsAvailable(this);
+  this.currentEnrollment.openSeatsAvailable = openSeatsAvailable;
+  this.currentEnrollment.reservedSeatsAvailable = reservedSeatsAvailable;
+  next();
+});
+
+
 
 module.exports = mongoose.model('Course', CourseSchema);
