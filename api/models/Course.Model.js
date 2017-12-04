@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const OnlineRegistration = require('ors-cp');
 
 
 const CourseSchema = new Schema({
@@ -33,9 +34,18 @@ const CourseSchema = new Schema({
     openSeatsEnrolled: {
       type: Number,
       default: 0
+    },
+    openSeatsAvailable: {
+      type: Number,
+      default: 0
     }
   }
-})
+});
 
+
+CourseSchema.methods.getEnrollment = function(cb) {
+  const ors = new OnlineRegistration(this);
+  return ors.showCourseEnrollment();
+};
 
 module.exports = mongoose.model('Course', CourseSchema);
